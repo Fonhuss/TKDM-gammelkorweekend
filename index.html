@@ -2,7 +2,7 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gammel Korsanger-weekend</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@700&display=swap');
@@ -16,139 +16,100 @@
     .container {
       max-width: 500px;
       margin: 2rem auto;
-      background: #fff;
+      background: white;
       border-radius: 18px;
-      box-shadow: 0 2px 12px rgba(40,40,80,0.10);
-      padding: 2rem 1.5rem;
+      padding: 2rem;
       border: 2px solid #e7c94b;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
     .logo {
       display: block;
-      margin: 0 auto 1.2rem auto;
+      margin: 0 auto 1.2rem;
       width: 110px;
       border-radius: 50%;
       border: 4px solid #e7c94b;
-      background: #fff;
     }
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 1.6rem;
-      color: #1a237e;
-      margin-bottom: 0.2rem;
     }
     h2 {
-      text-align: center;
+      font-style: italic;
       color: #5f450a;
       font-size: 1.1rem;
-      margin-top: 0;
-      margin-bottom: 1.2rem;
-      font-style: italic;
     }
-    .signup-form {
+    form {
       display: flex;
       flex-direction: column;
       gap: 0.7em;
-      margin-bottom: 2em;
-      margin-top: 1.5em;
+      margin-bottom: 1em;
     }
-    .signup-form input[type="text"],
-    .signup-form input[type="email"] {
-      font-size: 1.06em;
-      padding: 0.4em 0.7em;
-      border: 1.5px solid #e7c94b;
-      border-radius: 8px;
+    input {
+      padding: 0.5em;
+      border-radius: 6px;
+      border: 1px solid #e7c94b;
+      font-size: 1em;
     }
-    .signup-form button {
-      padding: 0.42em 1.2em;
-      font-size: 1.06em;
+    button {
+      padding: 0.5em;
       background: #e7c94b;
       color: #1a237e;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.2s;
-      align-self: flex-start;
     }
-    .signup-form button:hover {
+    button:hover {
       background: #cfb53b;
-    }
-    .signup-message {
-      margin-top: 0.5em;
-      color: green;
-      font-size: 0.98em;
-      font-style: italic;
-    }
-    .section-title {
-      color: #1a237e;
-      font-size: 1.08rem;
-      font-weight: bold;
-      margin-top: 1.8rem;
-      margin-bottom: 0.5rem;
     }
     .participants {
       list-style: none;
       padding: 0;
-      margin: 1rem 0 2rem 0;
-      border: 1.5px solid #e7c94b;
-      border-radius: 15px;
+      border: 1px solid #e7c94b;
+      border-radius: 10px;
       background: #faf7e8;
-      box-shadow: 0 1px 6px rgba(231,201,75,0.06);
+      margin-top: 1em;
     }
     .participants li {
-      padding: 0.5rem 1rem;
-      font-size: 1.08rem;
-      border-bottom: 1px solid #e7c94b44;
+      padding: 0.5em 1em;
+      border-bottom: 1px solid #e7c94b66;
     }
     .participants li:last-child {
       border-bottom: none;
     }
-    .private-note {
-      font-size: 0.92em;
+    .note {
+      font-size: 0.9em;
       color: #5f450a;
-      margin-bottom: 1.5rem;
       font-style: italic;
+      margin-bottom: 1.2em;
     }
     details {
-      margin: 1.5rem 0 1rem 0;
-      border: 1.5px solid #e7c94b;
-      border-radius: 12px;
+      margin-top: 1.5em;
       background: #faf7e8;
-      box-shadow: 0 1px 6px rgba(231,201,75,0.06);
-      padding: 0.6rem 1rem 0.6rem 1.1rem;
-      transition: box-shadow 0.3s;
+      padding: 1em;
+      border: 1px solid #e7c94b;
+      border-radius: 10px;
     }
     summary {
-      font-size: 1.07rem;
       font-weight: bold;
-      color: #1a237e;
       cursor: pointer;
-      outline: none;
-      padding: 0.1rem 0;
-    }
-    details[open] {
-      box-shadow: 0 2px 12px rgba(40,40,80,0.13);
+      font-size: 1.05em;
+      margin-bottom: 0.5em;
     }
     .program-list {
-      padding-left: 0.6rem;
-      margin: 0.7rem 0 0.5rem 0;
+      padding-left: 1em;
       list-style: none;
-      font-size: 1rem;
-      color: #222;
+      margin: 0;
     }
     .program-day {
       font-weight: bold;
       color: #1a237e;
-      margin-top: 1.1rem;
-      margin-bottom: 0.1rem;
-      font-size: 1.06rem;
+      margin-top: 1em;
     }
     .footer {
-      text-align: center;
+      margin-top: 2em;
+      font-size: 0.9em;
       color: #5f450a;
-      font-size: 0.92rem;
-      margin-top: 2.3rem;
-      opacity: 0.82;
+      text-align: center;
     }
   </style>
 </head>
@@ -158,19 +119,21 @@
     <h1>Gammel Korsanger-weekend</h1>
     <h2>10.–12. oktober 2025</h2>
 
-    <form id="signup-form" class="signup-form" autocomplete="off">
-      <input type="text" id="signup-name" name="navn" placeholder="Dit navn" required>
-      <input type="email" id="signup-email" name="email" placeholder="Din mail (vises ikke)" required>
+    <!-- Tilmeldingsformular -->
+    <form id="signup-form">
+      <input type="text" id="name" placeholder="Dit navn" required>
+      <input type="email" id="email" placeholder="Din mail (vises ikke)" required>
       <button type="submit">Tilmeld</button>
     </form>
-    <div id="signup-message" class="signup-message"></div>
-    <p class="private-note">
-      Mailadresser vises ikke offentligt. Du kan også tilmelde dig direkte til Steffan eller Niels.
-    </p>
+    <div class="note">
+      Mailadresser vises ikke offentligt. Du kan også tilmelde dig til Steffan eller Niels.
+    </div>
 
+    <!-- Deltagerliste -->
     <div class="section-title">Deltagere:</div>
     <ul class="participants" id="participants-list"></ul>
 
+    <!-- Program -->
     <details>
       <summary>Se program</summary>
       <ul class="program-list">
@@ -190,6 +153,7 @@
       </ul>
     </details>
 
+    <!-- Kontakt -->
     <div class="footer">
       Kontakt: Steffan Fonseca Huss – fonhuss@gmail.com<br>
       Kontakt: Niels Granvig – ng@thisted-kirke.dk<br>
@@ -197,63 +161,53 @@
     </div>
   </div>
 
+  <!-- JavaScript -->
   <script>
-    const ul = document.getElementById('participants-list');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwsdHUO_EAt81uLADnXvEA5c7fJdCKsAYlVFaqTKhdpnjGC5iI8eypohSHgMC4FhYngng/exec';
 
-    const savedParticipants = JSON.parse(localStorage.getItem('participants') || JSON.stringify([
-      { name: "Steffan Fonseca Huss", email: "fonhuss@gmail.com" },
-      { name: "Kristian Fonseca Huss", email: "kristian@example.com" }
-    ]));
-
-    function displayParticipants() {
-      ul.innerHTML = '';
-      savedParticipants.forEach(({ name }) => {
-        const li = document.createElement('li');
-        li.textContent = name;
-        ul.appendChild(li);
-      });
-      sortParticipants();
+    // Hent og vis deltagerne
+    async function loadParticipants() {
+      try {
+        const response = await fetch(scriptURL);
+        const data = await response.json();
+        const list = document.getElementById('participants-list');
+        list.innerHTML = '';
+        data.sort((a, b) => a.navn.localeCompare(b.navn, 'da')).forEach(p => {
+          const li = document.createElement('li');
+          li.textContent = p.navn;
+          list.appendChild(li);
+        });
+      } catch (err) {
+        console.error("Fejl ved indlæsning af deltagerliste:", err);
+      }
     }
 
-    function sortParticipants() {
-      const items = Array.from(ul.querySelectorAll('li'));
-      items.sort((a, b) => {
-        const aFirst = a.textContent.trim().split(' ')[0].toLowerCase();
-        const bFirst = b.textContent.trim().split(' ')[0].toLowerCase();
-        return aFirst.localeCompare(bFirst, 'da');
-      });
-      ul.innerHTML = '';
-      items.forEach(li => ul.appendChild(li));
-    }
-
-    displayParticipants();
-
-    document.getElementById('signup-form').addEventListener('submit', function(e) {
+    // Håndtér tilmelding
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('signup-name').value.trim();
-      const email = document.getElementById('signup-email').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
       if (!name || !email) return;
 
-      savedParticipants.push({ name, email });
-      localStorage.setItem('participants', JSON.stringify(savedParticipants));
-      displayParticipants();
+      const besked = `Ny tilmelding til gammelkor-weekend:\nNavn: ${name}\nEmail: ${email}`;
 
-      document.getElementById('signup-name').value = '';
-      document.getElementById('signup-email').value = '';
-      document.getElementById('signup-message').textContent = "Tak for din tilmelding!";
-
-      fetch("https://formspree.io/f/mgvzpdaa", {
-        method: "POST",
-        headers: { 'Accept': 'application/json' },
-        body: JSON.stringify({
-          navn: name,
-          email: email,
-          besked: `Ny tilmelding til gammelkor-weekend:\nNavn: ${name}\nEmail: ${email}`,
-          _replyto: email
-        })
-      });
+      try {
+        await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify({ navn: name, email: email, besked }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        document.getElementById('signup-form').reset();
+        loadParticipants();
+      } catch (err) {
+        console.error("Fejl ved tilmelding:", err);
+      }
     });
+
+    // Indlæs deltagerliste når siden åbner
+    loadParticipants();
   </script>
 </body>
 </html>
-
