@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gammel Korsanger-weekend</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@700&display=swap');
     body {
       background: #f7f6ee;
       font-family: 'Times New Roman', Times, serif;
@@ -82,33 +81,17 @@
       font-style: italic;
       margin-bottom: 1.2em;
     }
-    details {
-      margin-top: 1.5em;
-      background: #faf7e8;
-      padding: 1em;
-      border: 1px solid #e7c94b;
-      border-radius: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1.05em;
-      margin-bottom: 0.5em;
-    }
-    .program-list {
-      padding-left: 1em;
-      list-style: none;
-      margin: 0;
-    }
-    .program-day {
-      font-weight: bold;
-      color: #1a237e;
-      margin-top: 1em;
-    }
     .footer {
       margin-top: 2em;
       font-size: 0.9em;
       color: #5f450a;
+      text-align: center;
+    }
+    .thankyou {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 1em;
       text-align: center;
     }
   </style>
@@ -125,6 +108,8 @@
       <input type="email" id="email" placeholder="Din mail (vises ikke)" required>
       <button type="submit">Tilmeld</button>
     </form>
+
+    <div class="thankyou" id="thankyou-message">Tak for din tilmelding!</div>
     <div class="note">
       Mailadresser vises ikke offentligt. Du kan også tilmelde dig til Steffan eller Niels.
     </div>
@@ -132,26 +117,6 @@
     <!-- Deltagerliste -->
     <div class="section-title">Deltagere:</div>
     <ul class="participants" id="participants-list"></ul>
-
-    <!-- Program -->
-    <details>
-      <summary>Se program</summary>
-      <ul class="program-list">
-        <li class="program-day">Fredag 10. oktober</li>
-        <li>Kl. 18.30 – Ankomst og aftensmad</li>
-        <li>Fællessang og hyggeligt samvær bagefter</li>
-        <li class="program-day">Lørdag 11. oktober</li>
-        <li>Øvning til søndagens gudstjeneste og andet repertoire</li>
-        <li>Frokost</li>
-        <li>Udflugt og socialt samvær</li>
-        <li>Aftensmad</li>
-        <li>Aftenhygge og mere sang</li>
-        <li class="program-day">Søndag 12. oktober</li>
-        <li>Kl. 9.30 – Møde ind til gudstjenesten</li>
-        <li>Kl. 10.00 – Vi synger til gudstjenesten i Thisted Kirke</li>
-        <li>Farvel og tak for denne gang efter gudstjenesten</li>
-      </ul>
-    </details>
 
     <!-- Kontakt -->
     <div class="footer">
@@ -163,9 +128,8 @@
 
   <!-- JavaScript -->
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwsdHUO_EAt81uLADnXvEA5c7fJdCKsAYlVFaqTKhdpnjGC5iI8eypohSHgMC4FhYngng/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxy2305oqW3HyPAwvOIdkCkDSnEq4j_rdm4DQLePKEXDaeMjYYJDAK-G9fON5C91pbOnw/exec';
 
-    // Indlæs deltagere
     async function loadParticipants() {
       try {
         const response = await fetch(scriptURL);
@@ -182,17 +146,16 @@
       }
     }
 
-    // Send tilmelding
     document.getElementById('signup-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       if (!name || !email) return;
 
-      const besked = `Ny tilmelding til gammelkor-weekend:\nNavn: ${name}\nEmail: ${email}`;
+      const besked = `Tilmelding:\nNavn: ${name}\nEmail: ${email}`;
 
       try {
-        await fetch(scriptURL, {
+        const response = await fetch(scriptURL, {
           method: 'POST',
           body: JSON.stringify({ navn: name, email: email, besked }),
           headers: {
@@ -200,14 +163,19 @@
           }
         });
 
-        document.getElementById('signup-form').reset();
-        loadParticipants();
+        if (response.ok) {
+          document.getElementById('signup-form').reset();
+          document.getElementById('thankyou-message').style.display = 'block';
+          loadParticipants();
+        } else {
+          console.error("Tilmelding mislykkedes: " + response.status);
+        }
       } catch (err) {
         console.error("Fejl ved tilmelding:", err);
       }
     });
 
-    loadParticipants(); // Vis deltagerlisten ved indlæsning
+    loadParticipants();
   </script>
 </body>
 </html>
