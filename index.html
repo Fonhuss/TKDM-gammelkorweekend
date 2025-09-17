@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gammel Korsanger-weekend i Thisted</title>
+  <title>Gammel Korsanger-weekend i Thisted – AFLYST</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@700&display=swap');
     body {
@@ -21,6 +21,7 @@
       padding: 2rem;
       border: 2px solid #e7c94b;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      text-align: center;
     }
     .logo {
       display: block;
@@ -29,87 +30,34 @@
       border-radius: 50%;
       border: 4px solid #e7c94b;
     }
-    h1, h2 {
-      text-align: center;
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3em;
     }
-    h2 {
-      font-style: italic;
-      color: #5f450a;
+    .cancel-banner {
+      background: #d32f2f;
+      color: white;
+      padding: 0.6em 1em;
+      border-radius: 8px;
       font-size: 1.1rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7em;
-      margin-bottom: 1em;
-    }
-    input {
-      padding: 0.5em;
-      border-radius: 6px;
-      border: 1px solid #e7c94b;
-      font-size: 1em;
-    }
-    button {
-      padding: 0.5em;
-      background: #e7c94b;
-      color: #1a237e;
-      border: none;
-      border-radius: 6px;
       font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #cfb53b;
-    }
-    .participants {
-      list-style: none;
-      padding: 0;
-      border: 1px solid #e7c94b;
-      border-radius: 10px;
-      background: #faf7e8;
       margin-top: 1em;
+      margin-bottom: 1.5em;
+      display: inline-block;
     }
-    .participants li {
-      padding: 0.5em 1em;
-      border-bottom: 1px solid #e7c94b66;
-    }
-    .participants li:last-child {
-      border-bottom: none;
-    }
-    .note {
-      font-size: 0.9em;
-      color: #5f450a;
-      font-style: italic;
-      margin-bottom: 1.2em;
-    }
-    details {
-      margin-top: 1.5em;
+    .message {
+      font-size: 1rem;
+      color: #333;
       background: #faf7e8;
-      padding: 1em;
-      border: 1px solid #e7c94b;
+      padding: 1.5em;
       border-radius: 10px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1.05em;
-      margin-bottom: 0.5em;
-    }
-    .program-list {
-      padding-left: 1em;
-      list-style: none;
-      margin: 0;
-    }
-    .program-day {
-      font-weight: bold;
-      color: #1a237e;
-      margin-top: 1em;
+      border: 1px solid #e7c94b;
+      line-height: 1.6;
     }
     .footer {
       margin-top: 2em;
       font-size: 0.9em;
       color: #5f450a;
-      text-align: center;
     }
   </style>
 </head>
@@ -117,55 +65,14 @@
   <div class="container">
     <img src="Logo uden baggrund.png" alt="Thisted Kirkes Drenge- & Mandskor" class="logo">
     <h1>Gammel Korsanger-weekend</h1>
-    <h2>10.–12. oktober 2025</h2>
+    <div class="cancel-banner">AFLYST / UDSAT</div>
 
-    <!-- Tilmeldingsformular -->
-    <form action="https://formspree.io/f/mgvzpdaa" method="POST">
-      <input type="text" name="name" placeholder="Dit navn" required>
-      <input type="email" name="email" placeholder="Din mail (vises ikke)" required>
-      <button type="submit">Tilmeld</button>
-    </form>
-    <div class="note">
-      Mailadresser vises ikke offentligt. Du kan også tilmelde dig til Steffan eller Niels.
+    <div class="message">
+      Weekenden d. <strong>10.–12. oktober 2025</strong> er desværre <strong>aflyst</strong> og udsættes til en ny dato.<br><br>
+      Vi vender snart tilbage med mere information om ny dato og program – og glæder os stadig til at samle jer alle til en fantastisk weekend i musikkens og fællesskabets tegn.<br><br>
+      Tak for jeres forståelse 💙
     </div>
 
-    <!-- Deltagerliste -->
-    <div class="section-title">Deltagere:</div>
-    <ul class="participants">
-      <li>Jonas Bach</li>
-      <li>Niels Granvig</li>
-      <li>Harald Friis</li>
-      <li>Patrick Hansen</li>
-      <li>Julius Sebastian Bang Holst</li> 
-      <li>Steffan Fonseca Huss</li>
-      <li>Esben Kær</li>
-      <li>Carl Møller</li>
-      <li>Andrej Sumar</li>
-      
-      <!-- Tilføj flere deltagere manuelt herunder -->
-    </ul>
-
-    <!-- Program -->
-    <details>
-      <summary>Se program</summary>
-      <ul class="program-list">
-        <li class="program-day">Fredag 10. oktober</li>
-        <li>Kl. 18.30 – Ankomst og aftensmad</li>
-        <li>Fællessang og hyggeligt samvær bagefter</li>
-        <li class="program-day">Lørdag 11. oktober</li>
-        <li>Øvning til søndagens gudstjeneste og andet repertoire</li>
-        <li>Frokost</li>
-        <li>Udflugt og socialt samvær</li>
-        <li>Aftensmad</li>
-        <li>Aftenhygge og mere sang</li>
-        <li class="program-day">Søndag 12. oktober</li>
-        <li>Kl. 9.30 – Møde ind til gudstjenesten</li>
-        <li>Kl. 10.00 – Vi synger til gudstjenesten i Thisted Kirke</li>
-        <li>Farvel og tak for denne gang efter gudstjenesten</li>
-      </ul>
-    </details>
-
-    <!-- Kontakt -->
     <div class="footer">
       Kontakt: Steffan Fonseca Huss – fonhuss@gmail.com<br>
       Kontakt: Niels Granvig – ng@thisted-kirke.dk<br>
@@ -174,9 +81,3 @@
   </div>
 </body>
 </html>
-
-
-
-
-
-
